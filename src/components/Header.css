@@ -1,0 +1,205 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-image: linear-gradient(135deg, rgba(61, 97, 94, 0.88) 0%, rgba(79, 122, 118, 0.86) 50%, rgba(50, 77, 74, 0.9) 100%), url('/images/image-landing%202.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-white);
+  box-shadow: var(--shadow);
+}
+
+.header.header--hero {
+  background-image: linear-gradient(135deg, rgba(61, 97, 94, 0.55) 0%, rgba(79, 122, 118, 0.48) 50%, rgba(50, 77, 74, 0.58) 100%);
+}
+
+.header__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.header__logo {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: inherit;
+  letter-spacing: 0.02em;
+}
+
+.header__logo-text {
+  white-space: nowrap;
+}
+
+.header__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.header__burger span {
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.header__links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.header__links a {
+  color: inherit;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+
+.header__links a:hover {
+  opacity: 0.85;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.header__lang-wrap {
+  position: relative;
+}
+
+.header__lang {
+  color: inherit;
+  padding: 0.4rem 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.header__lang:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.header__lang-flag {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.header__lang span {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.header__lang-dropdown {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  min-width: 160px;
+  padding: 0.35rem;
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+}
+
+.header__lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  border-radius: 6px;
+  transition: background var(--transition);
+}
+
+.header__lang-option:hover {
+  background: var(--color-background);
+}
+
+.header__lang-option--active {
+  background: rgba(79, 122, 118, 0.12);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.header__lang-option img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .header__burger {
+    display: flex;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background-image: linear-gradient(135deg, rgba(61, 97, 94, 0.92) 0%, rgba(79, 122, 118, 0.9) 50%, rgba(50, 77, 74, 0.94) 100%), url('/images/image-landing%202.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    gap: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+  }
+
+  .header.header--hero .header__nav {
+    background-image: linear-gradient(135deg, rgba(61, 97, 94, 0.98) 0%, rgba(79, 122, 118, 0.96) 50%, rgba(50, 77, 74, 0.985) 100%);
+  }
+
+  .header__nav--open {
+    max-height: 80vh;
+    opacity: 1;
+  }
+
+  .header__links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header__links a {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .header__actions {
+    justify-content: flex-start;
+  }
+}

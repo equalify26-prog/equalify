@@ -1,0 +1,112 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem 4rem;
+  overflow: hidden;
+}
+
+.hero__slider {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero__slide--active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(79, 122, 118, 0.22) 0%,
+    rgba(79, 122, 118, 0.35) 100%
+  );
+  z-index: 2;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 720px;
+}
+
+.hero__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-white);
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.hero__tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.125rem, 2.25vw, 1.5rem);
+  font-weight: 700;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.hero__cta:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.hero__dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hero__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.hero__dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero__dot--active {
+  background: var(--color-accent);
+  transform: scale(1.2);
+}
