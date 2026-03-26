@@ -69,6 +69,15 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+.footer__socials a.is-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.footer__socials a.is-disabled:hover {
+  background: inherit;
+}
+
 .footer__socials a.footer__social--facebook {
   background: #1877f2;
   color: #ffffff;

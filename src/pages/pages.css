@@ -1015,6 +1015,18 @@
   transform: translateY(-2px);
 }
 
+.page__contact-social-link.is-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+  transform: none;
+}
+
+.page__contact-social-link.is-disabled:hover {
+  background: inherit;
+  color: inherit;
+  transform: none;
+}
+
 .page__contact-social-link--facebook {
   background: #1877f2;
   color: #ffffff;
