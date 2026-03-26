@@ -30,7 +30,7 @@
   min-height: 280px;
   border-radius: 12px;
   overflow: hidden;
-  color: var(--color-text);
+  color: #ffffff;
   transition: transform var(--transition);
 }
 
@@ -48,13 +48,21 @@
 .activities__card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(255, 251, 245, 0.85) 0%, rgba(255, 251, 245, 0.6) 100%);
+  background: linear-gradient(to top, rgba(14, 66, 151, 0.55) 0%, rgba(14, 66, 151, 0.78) 100%);
+}
+
+.activities__card.activities__card--news .activities__card-overlay {
+  background: linear-gradient(to top, rgba(120, 45, 170, 0.62) 0%, rgba(120, 45, 170, 0.84) 100%);
+}
+
+.activities__card.activities__card--resources .activities__card-overlay {
+  background: linear-gradient(to top, rgba(219, 110, 12, 0.6) 0%, rgba(219, 110, 12, 0.82) 100%);
 }
 
 .activities__card-icon {
   position: relative;
   padding: 2rem 1.5rem 0;
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .activities__card-icon svg {
@@ -91,7 +99,7 @@
   gap: 0.35rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-primary);
+  color: #ffffff;
 }
 
 .activities__card-link svg {

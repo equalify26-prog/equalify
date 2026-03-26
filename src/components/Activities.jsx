@@ -13,7 +13,8 @@ const CARDS = [
         <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
       </svg>
     ),
-    image: '/images/image1.jpg',
+    image: '/images/projects.jpg',
+    cardClassName: '',
   },
   {
     titleKey: 'activities.galleryTitle',
@@ -26,7 +27,8 @@ const CARDS = [
         <path d="m21 15-5-5L5 21" />
       </svg>
     ),
-    image: '/images/image2.jpg',
+    image: '/images/news-events.jpg',
+    cardClassName: 'activities__card--news',
   },
   {
     titleKey: 'activities.resourcesTitle',
@@ -39,7 +41,8 @@ const CARDS = [
         <path d="M8 7h8M8 11h8" />
       </svg>
     ),
-    image: '/images/image3.jpg',
+    image: '/images/resources.jpg',
+    cardClassName: 'activities__card--resources',
   },
 ]
 
@@ -51,7 +54,11 @@ export default function Activities() {
         <h2 className="activities__title">{t('activities.title')}</h2>
         <div className="activities__grid">
           {CARDS.map((card) => (
-            <Link key={card.titleKey} to={card.href} className="activities__card">
+            <Link
+              key={card.titleKey}
+              to={card.href}
+              className={`activities__card${card.cardClassName ? ` ${card.cardClassName}` : ''}`}
+            >
               <div className="activities__card-bg" style={{ backgroundImage: `url(${card.image})` }} />
               <div className="activities__card-overlay" />
               <div className="activities__card-icon">{card.icon}</div>
