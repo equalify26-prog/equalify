@@ -24,11 +24,14 @@
 }
 
 .footer__logo {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: inherit;
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo-img {
+  height: 120px;
+  width: auto;
+  display: block;
 }
 
 .footer__blocks {

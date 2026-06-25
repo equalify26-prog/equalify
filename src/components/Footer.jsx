@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__top">
           <Link to="/" className="footer__logo">
-            Equalify
+            <img src="/images/logo.png" alt="Equalify Foundation" className="footer__logo-img" />
           </Link>
           <div className="footer__blocks">
             <div className="footer__block">

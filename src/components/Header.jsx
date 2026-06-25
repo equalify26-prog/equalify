@@ -42,7 +42,7 @@ export default function Header() {
     <header className={`header ${isHome ? 'header--hero' : ''}`}>
       <div className="header__inner">
         <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)}>
-          <span className="header__logo-text">Equalify</span>
+          <img className="header__logo-img" src="/images/logo.png" alt="Equalify Foundation" />
         </Link>
 
         <button

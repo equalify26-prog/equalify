@@ -48,7 +48,7 @@
 .activities__card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(14, 66, 151, 0.55) 0%, rgba(14, 66, 151, 0.78) 100%);
+  background: linear-gradient(to top, rgba(255, 180, 150, 0.55) 0%, rgba(255, 180, 150, 0.78) 100%);
 }
 
 .activities__card.activities__card--news .activities__card-overlay {

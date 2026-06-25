@@ -32,10 +32,22 @@
   font-size: 1.375rem;
   color: inherit;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  height: 44px;
 }
 
 .header__logo-text {
   white-space: nowrap;
+}
+
+.header__logo-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transform: scale(2.2);
+  transform-origin: left center;
 }
 
 .header__burger {
@@ -159,6 +171,10 @@
 @media (max-width: 900px) {
   .header__burger {
     display: flex;
+  }
+
+  .header__logo {
+    height: 38px;
   }
 
   .header__nav {
