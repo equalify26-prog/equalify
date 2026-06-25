@@ -1,5 +1,4 @@
 import { useParams, Link } from 'react-router-dom'
-import { useLanguage } from '../context/LanguageContext'
 import './pages.css'
 
 const PROJECTS = {
@@ -34,29 +33,11 @@ By developing practical competencies and creating supportive learning environmen
       'Youth organisations and civil society organisations aiming to improve support services for migrant women',
       'Local communities and stakeholders working towards greater inclusion, diversity, and social cohesion',
     ],
-    partners: [
-      {
-        name: 'Ishøj Ung Kultur',
-        logo: '/images/ishoj-logo.png',
-        description: 'Youth centre leading coordination, quality, and local piloting.',
-      },
-      {
-        name: 'ANKI',
-        logo: '/images/anki-logo.png',
-        description: 'Kyrgyz Diaspora in Italy.',
-      },
-      {
-        name: 'Equalify',
-        logo: '/images/logo.png',
-        description: 'Research organization',
-      },
-    ],
   },
 }
 
 export default function ProjectDetailPage() {
   const { projectId } = useParams()
-  const { t } = useLanguage()
   const project = PROJECTS[projectId]
 
   if (!project) {
@@ -147,25 +128,7 @@ export default function ProjectDetailPage() {
             ))}
           </ul>
         </div>
-        <div className="project-detail__section">
-          <h2 className="project-detail__section-title">Who We Are</h2>
-          <h3 className="project-detail__subsection-title">Partners</h3>
-          <div className="project-detail__partners">
-            {project.partners.map((partner, index) => (
-              <div key={index} className="project-detail__partner-card">
-                <img src={partner.logo} alt={partner.name} className="project-detail__partner-logo" />
-                <h4 className="project-detail__partner-name">{partner.name}</h4>
-                <p className="project-detail__partner-description">{partner.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <Link to="/projects" className="page__cta">
-          Back to Projects
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-        </Link>
+        <Link to="/projects" className="page__cta">Back to Projects</Link>
       </div>
     </div>
   )
