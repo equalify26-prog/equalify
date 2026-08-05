@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ProjectsPage from './pages/ProjectsPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
+import ResourceDetailPage from './pages/ResourceDetailPage'
 import ResourcesPage from './pages/ResourcesPage'
 import NewsPage from './pages/NewsPage'
 import DonationPage from './pages/DonationPage'
@@ -20,6 +21,7 @@ function App() {
           <Route path="projects" element={<ProjectsPage />} />
           <Route path="projects/:projectId" element={<ProjectDetailPage />} />
           <Route path="resources" element={<ResourcesPage />} />
+          <Route path="resources/:resourceId" element={<ResourceDetailPage />} />
           <Route path="news" element={<NewsPage />} />
           <Route path="get-involved" element={<Navigate to="/#get-involved" replace />} />
           <Route path="donation" element={<DonationPage />} />

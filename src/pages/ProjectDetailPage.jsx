@@ -9,6 +9,18 @@ const PROJECTS = {
     duration: '12 month',
     budget: '60 000€',
     partners: '3',
+    report: {
+      title: 'Herizon – Comparative Research Report',
+      category: 'Research',
+      year: '2026',
+      logo: '/images/herizon-logo.png',
+      description:
+        'This comparative research report presents findings on barriers, needs, and opportunities for young migrant women, developed within the framework of the HERIZON Erasmus+ project.',
+      organization: 'Equalify',
+      language: 'English',
+      pages: 40,
+      pdfUrl: '/documents/herizon-comparative-research-report.pdf',
+    },
     summary: `Young migrant women often face multiple barriers to education, employment, and active participation in society. Herizon strengthens their essential life skills, confidence, and resilience so they can successfully integrate into their communities and pursue their personal and professional goals.
 
 By developing practical competencies and creating supportive learning environments, the project empowers young migrant women while equipping youth workers and NGOs with innovative, gender-sensitive tools to better support their integration journey.`,
@@ -97,17 +109,70 @@ export default function ProjectDetailPage() {
           <h2 className="project-detail__summary-title">Project Summary</h2>
           <p className="project-detail__summary-text">{project.summary}</p>
         </div>
-        <div className="project-detail__section">
-          <h2 className="project-detail__section-title">Strategic Objectives</h2>
-          <ul className="project-detail__list">
-            {project.objectives.map((objective, index) => (
-              <li key={index} className="project-detail__list-item">
-                <span className="project-detail__list-number">{index + 1}.</span>
-                <span>{objective}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {project.report && (
+          <article className="resource__card">
+            <div className="resource__card-accent" aria-hidden="true" />
+            <div className="resource__card-header">
+              <span className="resource__category">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                {project.report.category}
+              </span>
+              <span className="resource__year">{project.report.year}</span>
+            </div>
+            <div className="resource__card-body">
+              <div className="resource__logo">
+                <img src={project.report.logo} alt="Herizon logo" className="resource__logo-img" />
+              </div>
+              <div className="resource__content">
+                <h3 className="resource__title">{project.report.title}</h3>
+                <p className="resource__desc">{project.report.description}</p>
+              </div>
+            </div>
+            <div className="resource__meta">
+              <span className="resource__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                {project.report.organization}
+              </span>
+              <span className="resource__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+                {project.report.language}
+              </span>
+              <span className="resource__meta-item">{project.report.pages} pages</span>
+            </div>
+            <div className="resource__actions">
+              <div className="resource__actions-primary">
+                <a href={project.report.pdfUrl} download className="resource__btn resource__btn--download">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Download PDF
+                </a>
+                <a href={project.report.pdfUrl} target="_blank" rel="noopener noreferrer" className="resource__btn resource__btn--view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  View
+                </a>
+              </div>
+            </div>
+          </article>
+        )}
         <div className="project-detail__section">
           <h2 className="project-detail__section-title">Project Deliverables</h2>
           <ul className="project-detail__list">
