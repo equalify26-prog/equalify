@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import './pages.css'
 
 const PROJECTS = {
@@ -10,6 +10,7 @@ const PROJECTS = {
     budget: '60 000€',
     partners: '3',
     report: {
+      id: 'herizon-comparative-research-report',
       title: 'Herizon – Comparative Research Report',
       category: 'Research',
       year: '2026',
@@ -63,6 +64,8 @@ export default function ProjectDetailPage() {
     )
   }
 
+  const navigate = useNavigate()
+
   return (
     <div className="page">
       <div className="page__container">
@@ -110,7 +113,18 @@ export default function ProjectDetailPage() {
           <p className="project-detail__summary-text">{project.summary}</p>
         </div>
         {project.report && (
-          <article className="resource__card">
+          <article
+            className="resource__card resource__card--highlight"
+            role="button"
+            tabIndex={0}
+            onClick={(event) => {
+              if (event.target.closest('a')) return
+              navigate(`/resources/${project.report.id || 'herizon-comparative-research-report'}`)
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') navigate(`/resources/${project.report.id || 'herizon-comparative-research-report'}`)
+            }}
+          >
             <div className="resource__card-accent" aria-hidden="true" />
             <div className="resource__card-header">
               <span className="resource__category">

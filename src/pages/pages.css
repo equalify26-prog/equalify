@@ -1708,6 +1708,7 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
 }
 
 .resource__card:hover {
@@ -1852,23 +1853,337 @@
 }
 
 .resource__btn--download {
-  background: var(--color-primary);
+  background: var(--color-accent);
   color: var(--color-white);
 }
 
 .resource__btn--download:hover {
-  background: var(--color-primary-light);
+  background: var(--color-accent-hover);
 }
 
 .resource__btn--view {
   background: var(--color-white);
-  color: var(--color-primary);
-  border: 1px solid rgba(79, 122, 118, 0.35);
+  color: var(--color-accent);
+  border: 1px solid rgba(224, 166, 49, 0.22);
 }
 
 .resource__btn--view:hover {
-  border-color: var(--color-primary);
-  background: rgba(79, 122, 118, 0.06);
+  border-color: var(--color-accent);
+  background: rgba(224, 166, 49, 0.06);
+}
+
+.resource__card.resource__card--highlight {
+  border-color: rgba(79, 122, 118, 0.28);
+  box-shadow: 0 10px 28px rgba(79, 122, 118, 0.12);
+}
+
+.resource__card.resource__card--highlight .resource__card-accent {
+  background: var(--color-accent);
+}
+
+.resource__card.resource__card--highlight .resource__btn--download {
+  background: var(--color-accent);
+}
+
+.resource__card.resource__card--highlight .resource__btn--view {
+  border-color: rgba(224, 166, 49, 0.22);
+  color: var(--color-accent);
+}
+
+.resource-detail__page-title {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.resource-detail__page-meta {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 1rem;
+}
+
+.resource-detail__page-header {
+  background: linear-gradient(180deg, rgba(79, 122, 118, 0.98), rgba(79, 122, 118, 0.95));
+  border-radius: 28px;
+  padding: 2rem;
+  margin-bottom: 3.5rem !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* When resource header is also using page__hero, remove the hero's large top padding
+   so the header content (back link, title, logo) sits at the top with no white gap. */
+.resource-detail__page-header.page__hero {
+  /* keep the green gradient header but remove the large hero top spacing */
+  background: linear-gradient(180deg, rgba(79, 122, 118, 0.98), rgba(79, 122, 118, 0.95));
+  padding-top: 0.75rem;
+  padding-bottom: 1.5rem;
+  margin-top: 0;
+  border-radius: 28px;
+  overflow: visible;
+}
+
+.resource-detail__page-header.page__hero .page__hero-content {
+  position: relative;
+  z-index: 3; /* ensure content sits above hero pseudo elements */
+  padding-top: 0.25rem;
+}
+
+.resource-detail__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+  gap: 2rem;
+  align-items: start;
+  max-width: 1100px;
+  margin: 4rem auto 2rem;
+}
+
+.resource-detail__info-card {
+  background: var(--color-white);
+  border: 1px solid rgba(79, 122, 118, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.resource-detail__page-header-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.resource-detail__page-header-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+}
+
+.resource-detail__year--header {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.resource-detail__page-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+  color: #ffffff;
+  text-align: center;
+}
+
+.resource-detail__page-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  min-height: 180px;
+  padding: 1.5rem;
+  border-radius: 30px;
+  background: var(--color-white);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+}
+
+.resource-detail__page-logo-card .resource-detail__logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.resource-detail__page-header .resource__category {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.resource-detail__page-header .resource__category svg {
+  color: #ffffff;
+}
+
+.resource-detail__page-header .resource__year--header {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.resource-detail__page-header .resource-detail__page-meta {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.resource-detail__page-header .resource__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.6rem 0 0 0;
+}
+
+.resource-detail__page-header .resource__meta-item {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.resource-detail__page-header .resource__meta-item svg {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.resource-detail__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+  gap: 2rem;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+}
+
+.resource-detail__info-card {
+  background: var(--color-white);
+  border: 1px solid rgba(79, 122, 118, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.resource-detail__info-card-top {
+  padding: 1rem 1rem 0.75rem;
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+.resource-detail__info-card-label {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.75rem;
+}
+
+.resource-detail__info-card-title {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.resource-detail__meta-line--boxed {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.resource-detail__actions.resource-detail__actions--stacked {
+  padding: 0.75rem 0.9rem 1rem;
+}
+
+.resource-detail__overview {
+  display: block;
+  padding-right: 0.75rem;
+}
+
+.resource__section-heading {
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  color: rgba(0,0,0,0.45);
+  margin: 0 0 0.75rem 0;
+}
+
+.resource-detail__overview-text {
+  margin: 0 0 1.5rem;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.resource__subheading {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 0.75rem 0;
+}
+
+
+.resource-detail__who,
+.resource-detail__highlights {
+  margin-top: 1.75rem;
+}
+
+.resource-detail__who .resource__subheading,
+.resource-detail__highlights .resource__subheading,
+.resource-detail__overview .resource__subheading {
+  margin-bottom: 0.85rem;
+  color: #000000;
+}
+
+.resource-detail__text {
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.75;
+}
+
+.resource-detail__highlight-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: none;
+  color: var(--color-text);
+}
+
+.resource-detail__highlight-list li {
+  position: relative;
+  margin-bottom: 0.8rem;
+  line-height: 1.75;
+}
+
+.resource-detail__highlight-list li::before {
+  content: '•';
+  position: absolute;
+  left: -1.25rem;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.resource-detail__info-meta {
+  margin-top: 0;
+  padding: 0 1.75rem 1.75rem;
+}
+
+.resource-detail__info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.resource-detail__info-row strong {
+  font-weight: 700;
+}
+
+.resource-detail__actions--stacked {
+  flex-direction: column;
+}
+
+.resource-detail__actions--stacked .resource__btn {
+  width: 100%;
+}
+
+.resource-detail__info-meta {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.resource-detail__info-row strong {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .resource-detail__hero {
+    grid-template-columns: 1fr;
+  }
 }
 
 .resource__details {
@@ -1894,15 +2209,25 @@
 }
 
 .resource-detail__back {
-  display: inline-block;
-  margin-bottom: 1.5rem;
+  position: absolute;
+  top: 18px;
+  left: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
   font-size: 0.9375rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  text-decoration: none;
+  z-index: 5;
 }
 
 .resource-detail__back:hover {
-  color: var(--color-primary-light);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-white);
 }
 
 .resource-detail__header {

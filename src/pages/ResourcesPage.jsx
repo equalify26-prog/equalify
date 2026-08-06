@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { RESOURCES, RESOURCE_CATEGORIES } from '../data/resources'
 import './pages.css'
@@ -7,6 +7,7 @@ import './pages.css'
 export default function ResourcesPage() {
   const { t } = useLanguage()
   const [activeCategory, setActiveCategory] = useState('All')
+  const navigate = useNavigate()
 
   const filteredResources = RESOURCES.filter(
     (resource) => activeCategory === 'All' || resource.category === activeCategory
@@ -36,7 +37,19 @@ export default function ResourcesPage() {
 
         <div className="resources__grid">
           {filteredResources.map((resource) => (
-            <article key={resource.id} className="resource__card">
+            <article
+              key={resource.id}
+              className="resource__card"
+              role="button"
+              tabIndex={0}
+              onClick={(event) => {
+                if (event.target.closest('a')) return
+                navigate(`/resources/${resource.id}`)
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') navigate(`/resources/${resource.id}`)
+              }}
+            >
               <div className="resource__card-accent" aria-hidden="true" />
 
               <div className="resource__card-header">
