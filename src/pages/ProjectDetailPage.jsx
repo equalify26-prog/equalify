@@ -19,7 +19,7 @@ const PROJECTS = {
         'This comparative research report presents findings on barriers, needs, and opportunities for young migrant women, developed within the framework of the HERIZON Erasmus+ project.',
       organization: 'Equalify',
       language: 'English',
-      pages: 40,
+      pages: 3,
       pdfUrl: '/documents/herizon-comparative-research-report.pdf',
     },
     summary: `Young migrant women often face multiple barriers to education, employment, and active participation in society. Herizon strengthens their essential life skills, confidence, and resilience so they can successfully integrate into their communities and pursue their personal and professional goals.
