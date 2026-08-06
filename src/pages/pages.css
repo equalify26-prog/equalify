@@ -1903,7 +1903,7 @@
 
 .resource-detail__page-header {
   background: linear-gradient(180deg, rgba(79, 122, 118, 0.98), rgba(79, 122, 118, 0.95));
-  border-radius: 28px;
+  border-radius: 0;
   padding: 2rem;
   margin-bottom: 3.5rem !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
@@ -1917,7 +1917,7 @@
   padding-top: 0.75rem;
   padding-bottom: 1.5rem;
   margin-top: 0;
-  border-radius: 28px;
+  border-radius: 0;
   overflow: visible;
 }
 
