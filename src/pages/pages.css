@@ -1693,7 +1693,8 @@
 
 .resources__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
   gap: 1.5rem;
   max-width: 900px;
   margin: 0 auto;
@@ -1704,11 +1705,13 @@
   background: var(--color-white);
   border: 1px solid rgba(79, 122, 118, 0.15);
   border-radius: 14px;
-  padding: 1.25rem 1.25rem 1rem;
+  padding: 1rem 1rem 0.9rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
   cursor: pointer;
+  width: min(100%, 760px);
+  margin: 0 auto;
 }
 
 .resource__card:hover {
