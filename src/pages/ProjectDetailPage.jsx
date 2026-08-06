@@ -34,8 +34,8 @@ By developing practical competencies and creating supportive learning environmen
     ],
     deliverables: [
       'Comparative Needs Assessment Report identifying barriers, needs, and opportunities for young migrant women',
-      'LIFEWISE Empowerment Labs with practical, non-formal learning activities focused on personal and professional development',
-      'Digital LIFEWISE Toolkit featuring interactive exercises, life skills resources, and inspiring participant stories',
+      'Herizon Empowerment Labs with practical, non-formal learning activities focused on personal and professional development',
+      'Digital Herizon Toolkit featuring interactive exercises, life skills resources, and inspiring participant stories',
       'Personal Action Plans supporting participants in setting and achieving individual goals',
       'Peer Exchange Methodology for youth workers and organisations working with migrant women',
       'Multiplier Events & Sustainability Resources to ensure long-term impact and wider adoption across Europe',
