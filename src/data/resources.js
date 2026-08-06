@@ -9,7 +9,7 @@ export const RESOURCES = [
       'This comparative research report presents findings on barriers, needs, and opportunities for young migrant women, developed within the framework of the HERIZON Erasmus+ project.',
     organization: 'Equalify',
     language: 'English',
-    pages: 3,
+    pages: 40,
     pdfUrl: '/documents/herizon-comparative-research-report.pdf',
   },
 ]
