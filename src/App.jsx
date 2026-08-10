@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ProjectsPage from './pages/ProjectsPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
+import TransnationalExchangePage from './pages/TransnationalExchangePage'
 import ResourceDetailPage from './pages/ResourceDetailPage'
 import ResourcesPage from './pages/ResourcesPage'
 import NewsPage from './pages/NewsPage'
@@ -20,6 +21,7 @@ function App() {
           <Route path="what-we-do" element={<Navigate to="/about#what-we-do" replace />} />
           <Route path="projects" element={<ProjectsPage />} />
           <Route path="projects/:projectId" element={<ProjectDetailPage />} />
+          <Route path="transnational-exchange" element={<TransnationalExchangePage />} />
           <Route path="resources" element={<ResourcesPage />} />
           <Route path="resources/:resourceId" element={<ResourceDetailPage />} />
           <Route path="news" element={<NewsPage />} />

@@ -33,6 +33,31 @@ By developing practical competencies and creating supportive learning environmen
       'Youth organisations and civil society organisations aiming to improve support services for migrant women',
       'Local communities and stakeholders working towards greater inclusion, diversity, and social cohesion',
     ],
+    plan: [
+      'Coordination and Quality Management',
+      'Participatory Needs Assessment & Youth Consultation',
+      'Transnational peer exchange & co-design',
+      'Herizon Local Empowerment Labs',
+      'Development of the Herizon Digital Toolkit',
+      'Dissemination & Sustainability',
+    ],
+  },
+  lifewise: {
+    name: 'Herizon',
+    description: 'Herizon empowers youth through innovative learning experiences and local empowerment initiatives.',
+    logo: '/images/herizon-logo.png',
+    duration: 'TBD',
+    budget: 'TBD',
+    partners: 'TBD',
+    summary: 'Herizon is a comprehensive project designed to support youth development and community empowerment through participatory approaches.',
+    sections: [
+      { title: 'Coordination and Quality Management', content: 'Details to be filled' },
+      { title: 'Participatory Needs Assessment & Youth Consultation', content: 'Details to be filled' },
+      { title: 'Transnational peer exchange & co-design', content: 'Details to be filled' },
+      { title: 'Herizon Local Empowerment Labs', content: 'Details to be filled' },
+      { title: 'Development of the Herizon Digital Toolkit', content: 'Details to be filled' },
+      { title: 'Dissemination & Sustainability', content: 'Details to be filled' },
+    ],
   },
 }
 
@@ -97,26 +122,56 @@ export default function ProjectDetailPage() {
           <h2 className="project-detail__summary-title">Project Summary</h2>
           <p className="project-detail__summary-text">{project.summary}</p>
         </div>
-        <div className="project-detail__section">
-          <h2 className="project-detail__section-title">Project Deliverables</h2>
-          <ul className="project-detail__list">
-            {project.deliverables.map((deliverable, index) => (
-              <li key={index} className="project-detail__list-item">
-                <span>{deliverable}</span>
-              </li>
+        
+        {projectId === 'lifewise' && project.sections ? (
+          <>
+            {project.sections.map((section, index) => (
+              <div key={index} className="project-detail__section">
+                <h2 className="project-detail__section-title">{section.title}</h2>
+                <p className="project-detail__section-content">{section.content}</p>
+              </div>
             ))}
-          </ul>
-        </div>
-        <div className="project-detail__section">
-          <h2 className="project-detail__section-title">Who Benefits</h2>
-          <ul className="project-detail__list">
-            {project.beneficiaries.map((beneficiary, index) => (
-              <li key={index} className="project-detail__list-item">
-                <span>{beneficiary}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+          </>
+        ) : (
+          <>
+            <div className="project-detail__section">
+              <h2 className="project-detail__section-title">Project Deliverables</h2>
+              <ul className="project-detail__list">
+                {project.deliverables.map((deliverable, index) => (
+                  <li key={index} className="project-detail__list-item">
+                    <span>{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="project-detail__section">
+              <h2 className="project-detail__section-title">Who Benefits</h2>
+              <ul className="project-detail__list">
+                {project.beneficiaries.map((beneficiary, index) => (
+                  <li key={index} className="project-detail__list-item">
+                    <span>{beneficiary}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="project-detail__section">
+              <h2 className="project-detail__section-title">Project Plan</h2>
+              <ul className="project-detail__list">
+                {project.plan.map((planItem, index) => (
+                  <li key={index} className="project-detail__list-item">
+                    {planItem === 'Transnational peer exchange & co-design' ? (
+                      <Link to="/transnational-exchange" className="project-detail__link">
+                        {planItem}
+                      </Link>
+                    ) : (
+                      <span>{planItem}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
         <Link to="/projects" className="page__cta">Back to Projects</Link>
       </div>
     </div>
