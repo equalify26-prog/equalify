@@ -13,16 +13,6 @@ const PROJECTS = [
     duration: '12 month',
     budget: '60 000€',
   },
-  {
-    id: 'lifewise',
-    name: 'Herizon',
-    logo: '/images/herizon-logo.png',
-    description: 'Empowering youth through innovative learning experiences and local empowerment initiatives.',
-    status: 'Ongoing',
-    program: 'TBD',
-    duration: 'TBD',
-    budget: 'TBD',
-  },
 ]
 
 export default function ProjectsPage() {

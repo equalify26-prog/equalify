@@ -42,23 +42,6 @@ By developing practical competencies and creating supportive learning environmen
       'Dissemination & Sustainability',
     ],
   },
-  lifewise: {
-    name: 'Herizon',
-    description: 'Herizon empowers youth through innovative learning experiences and local empowerment initiatives.',
-    logo: '/images/herizon-logo.png',
-    duration: 'TBD',
-    budget: 'TBD',
-    partners: 'TBD',
-    summary: 'Herizon is a comprehensive project designed to support youth development and community empowerment through participatory approaches.',
-    sections: [
-      { title: 'Coordination and Quality Management', content: 'Details to be filled' },
-      { title: 'Participatory Needs Assessment & Youth Consultation', content: 'Details to be filled' },
-      { title: 'Transnational peer exchange & co-design', content: 'Details to be filled' },
-      { title: 'Herizon Local Empowerment Labs', content: 'Details to be filled' },
-      { title: 'Development of the Herizon Digital Toolkit', content: 'Details to be filled' },
-      { title: 'Dissemination & Sustainability', content: 'Details to be filled' },
-    ],
-  },
 }
 
 export default function ProjectDetailPage() {
