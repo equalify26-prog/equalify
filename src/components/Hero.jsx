@@ -39,11 +39,17 @@ export default function Hero() {
       </div>
       <div className="hero__overlay" />
       <div className="hero__content">
+        <p className="hero__eyebrow">Foundation</p>
         <h1 className="hero__title">EQUALIFY</h1>
         <p className="hero__tagline">{t('hero.tagline')}</p>
-        <Link to="/about" className="hero__cta">
-          {t('hero.cta')}
-        </Link>
+        <div className="hero__actions">
+          <Link to="/about" className="hero__cta">
+            {t('hero.learnMore')}
+          </Link>
+          <Link to="/projects" className="hero__cta hero__cta--ghost">
+            {t('hero.ourProjects')}
+          </Link>
+        </div>
       </div>
       <div className="hero__dots">
         {SLIDES.map((_, i) => (

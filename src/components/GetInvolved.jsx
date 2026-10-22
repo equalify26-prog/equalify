@@ -1,12 +1,9 @@
 import { useCallback, useEffect, useId, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { submitContact } from '../api/contact'
+import '../design/design.css'
+import '../design/index.css'
 import './GetInvolved.css'
-
-const OPTIONS = [
-  { id: 'volunteer', titleKey: 'pages.volunteer', descKey: 'pages.volunteerDesc' },
-  { id: 'partner', titleKey: 'pages.partner', descKey: 'pages.partnerDesc' },
-]
 
 export default function GetInvolved() {
   const { t } = useLanguage()
@@ -76,21 +73,64 @@ export default function GetInvolved() {
   }
 
   return (
-    <section className="get-involved" id="get-involved">
-      <div className="get-involved__inner">
-        <h2 className="get-involved__title">{t('pages.getInvolvedTitle')}</h2>
-        <div className="get-involved__cards">
-          {OPTIONS.map((opt) => (
-            <button
-              key={opt.id}
-              type="button"
-              className="get-involved__card"
-              onClick={() => openModal(opt.id)}
-            >
-              <h3>{t(opt.titleKey)}</h3>
-              <p>{t(opt.descKey)}</p>
-            </button>
-          ))}
+    <>
+      <div className="eqd page-index" id="get-involved">
+        <div className="rp-big" style={{ width: "100%", background: "#F6F1E7", padding: "88px 7% 92px", boxSizing: "border-box" }}>
+          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+            <div style={{ textAlign: "center" }}>
+              <h2 className="h2" style={{ fontSize: "38px", color: "#2F4A47", textAlign: "center" }}>
+                {t('pages.getInvolvedTitle')}
+              </h2>
+              <div style={{ marginTop: "14px", textAlign: "center" }}>
+                <span className="eq"></span>
+              </div>
+            </div>
+            <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", marginTop: "44px", borderRadius: "32px", overflow: "hidden", boxShadow: "0 24px 54px rgba(47,74,71,.18)" }}>
+              <div className="rp-card" style={{ padding: "48px 44px", background: "linear-gradient(135deg,#4F7A76 0%,#3f6965 100%)", color: "#F6F1E7" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px" }}>
+                  <span style={{ width: "60px", height: "60px", borderRadius: "50%", background: "#D9A441", display: "inline-flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
+                    <svg fill="none" height="28" stroke="#2F4A47" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="28">
+                      <path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z" />
+                    </svg>
+                  </span>
+                  <h3 className="disp" style={{ fontWeight: "700", fontSize: "34px", margin: "0", color: "#F6F1E7" }}>
+                    {t('pages.volunteer')}
+                  </h3>
+                </div>
+                <p style={{ fontSize: "16.5px", lineHeight: "1.75", margin: "0 0 24px", color: "rgba(246,241,231,.92)" }}>
+                  {t('pages.volunteerDesc')}
+                </p>
+                <button type="button" onClick={() => openModal('volunteer')} style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontWeight: "700", fontSize: "14px", color: "#F6F1E7", background: "none", border: 0, padding: 0, cursor: "pointer", font: "inherit", fontFamily: "inherit" }}>
+                  {t('activities.learnMore')}
+                  <svg fill="none" height="14" stroke="#D9A441" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.8" viewBox="0 0 24 24" width="14">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+              <div className="rp-card" style={{ padding: "48px 44px", background: "#FFFFFF", color: "#2F4A47" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px" }}>
+                  <span style={{ width: "60px", height: "60px", borderRadius: "50%", background: "#4F7A76", display: "inline-flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
+                    <svg fill="none" height="28" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="28">
+                      <circle cx="9" cy="8" r="3.5" />
+                      <path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M16 4.8a3.5 3.5 0 010 6.4M18 14.4c2.2.7 3.5 2.6 3.5 5.6" />
+                    </svg>
+                  </span>
+                  <h3 className="disp" style={{ fontWeight: "700", fontSize: "34px", margin: "0", color: "#2F4A47" }}>
+                    {t('pages.partner')}
+                  </h3>
+                </div>
+                <p style={{ fontSize: "16.5px", lineHeight: "1.75", margin: "0 0 24px", color: "#4F4F4F" }}>
+                  {t('pages.partnerDesc')}
+                </p>
+                <button type="button" onClick={() => openModal('partner')} style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontWeight: "700", fontSize: "14px", color: "#4F7A76", background: "none", border: 0, padding: 0, cursor: "pointer", font: "inherit", fontFamily: "inherit" }}>
+                  {t('activities.learnMore')}
+                  <svg fill="none" height="14" stroke="#D9A441" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.8" viewBox="0 0 24 24" width="14">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -197,6 +237,6 @@ export default function GetInvolved() {
           </div>
         </div>
       )}
-    </section>
+    </>
   )
 }

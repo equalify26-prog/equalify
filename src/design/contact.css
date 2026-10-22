@@ -1,0 +1,32 @@
+.eqd.page-contact .kept { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+.eqd.page-contact .disp { font-family: 'Cormorant Garamond', Georgia, serif; }
+.eqd.page-contact .eq { display: inline-block; width: 44px; height: 17px; background: linear-gradient(#D9A441,#D9A441) top/100% 5px no-repeat, linear-gradient(#D9A441,#D9A441) bottom/100% 5px no-repeat; }
+.eqd.page-contact .eq.m { width: 30px; height: 12px; background-size: 100% 3.5px; }
+.eqd.page-contact .h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 34px; line-height: 1.05; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
+.eqd.page-contact .pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 6px 16px 6px 12px; font-size: 13px; font-weight: 700; }
+.eqd.page-contact .logoph { width: 100%; height: 100%; border: 2px dashed #4F7A76; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 700; color: #2F4A47; line-height: 1.2; box-sizing: border-box; padding: 4px; }
+.eqd.page-contact .btn { display: inline-flex; align-items: center; gap: 12px; background: #D9A441; color: #2F4A47; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 14px 16px 14px 28px; white-space: nowrap; }
+.eqd.page-contact .btn i { width: 28px; height: 28px; border-radius: 50%; background: #2F4A47; display: inline-flex; align-items: center; justify-content: center; }
+.eqd.page-contact .chip { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 8px 16px; font-size: 13.5px; font-weight: 600; }
+.eqd.page-contact .ev { display: flex; gap: 18px; align-items: center; }
+.eqd.page-contact .date { flex: none; width: 66px; height: 74px; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
+.eqd.page-contact .date b { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 28px; }
+.eqd.page-contact .date span { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; }
+.eqd.page-contact .evt { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 23px; line-height: 1.15; color: #2F4A47; margin: 0 0 8px; }
+.eqd.page-contact .evm { display: flex; gap: 6px 18px; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; color: #2F4A47; }
+.eqd.page-contact .evm span { display: inline-flex; align-items: center; gap: 7px; }
+.eqd.page-contact .cf { background: #FFFFFF; padding: 40px 38px 38px; }
+.eqd.page-contact .cf__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.eqd.page-contact .cf__field { margin-top: 16px; }
+.eqd.page-contact .cf__row .cf__field { margin-top: 0; }
+.eqd.page-contact .cf form > .cf__field:first-child, .eqd.page-contact .cf__row + .cf__field { margin-top: 16px; }
+.eqd.page-contact .cf label { display: block; font-size: 11.5px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #2F4A47; margin-bottom: 8px; }
+.eqd.page-contact .cf label span { color: #D9A441; }
+.eqd.page-contact .cf input, .eqd.page-contact .cf select, .eqd.page-contact .cf textarea { width: 100%; box-sizing: border-box; border: 0; border-radius: 14px; background: #F6F1E7; box-shadow: inset 0 0 0 1.5px #E3D9C2; padding: 0 16px; font-family: inherit; font-size: 14.5px; color: #262322; outline: none; }
+.eqd.page-contact .cf input, .eqd.page-contact .cf select { height: 52px; }
+.eqd.page-contact .cf textarea { padding: 16px; resize: vertical; min-height: 150px; }
+.eqd.page-contact .cf input:focus, .eqd.page-contact .cf select:focus, .eqd.page-contact .cf textarea:focus { box-shadow: inset 0 0 0 2px #4F7A76; }
+.eqd.page-contact .cf select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238F897C' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+.eqd.page-contact .cf__send { margin-top: 24px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; border: 0; cursor: pointer; font-family: inherit; background: #D9A441; color: #2F4A47; font-weight: 800; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 999px; padding: 17px 22px; box-shadow: 0 14px 28px rgba(217,164,65,.30); }
+.eqd.page-contact .cf__send:hover { filter: brightness(1.05); }
+.eqd.page-contact .cf__status { margin: 14px 0 0; font-size: 14px; color: #2F4A47; min-height: 1em; }

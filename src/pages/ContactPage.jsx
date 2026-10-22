@@ -1,15 +1,11 @@
 import { useState } from 'react'
-import { useLanguage } from '../context/LanguageContext'
 import { submitContact } from '../api/contact'
-import './pages.css'
+import { useLanguage } from '../context/LanguageContext'
+import '../design/design.css'
+import '../design/contact.css'
 
-const emptyForm = {
-  name: '',
-  email: '',
-  phone: '',
-  subject: '',
-  message: '',
-}
+const emptyForm = { name: '', email: '', phone: '', subject: '', message: '' }
+const SUBJECT_KEYS = ['consultation', 'training', 'workshop', 'speaking', 'research', 'mentoring', 'media', 'other']
 
 export default function ContactPage() {
   const { t } = useLanguage()
@@ -18,10 +14,7 @@ export default function ContactPage() {
   const [errorDetail, setErrorDetail] = useState('')
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e) => {
@@ -29,14 +22,7 @@ export default function ContactPage() {
     setSubmitState('sending')
     setErrorDetail('')
     try {
-      await submitContact({
-        kind: 'contact',
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        subject: formData.subject,
-        message: formData.message,
-      })
+      await submitContact({ kind: 'contact', ...formData })
       setSubmitState('success')
       setFormData(emptyForm)
     } catch (err) {
@@ -44,173 +30,135 @@ export default function ContactPage() {
       setErrorDetail(err instanceof Error ? err.message : t('pages.formError'))
     }
   }
-
   return (
-    <div className="page">
-      <div className="page__contact-hero">
-        <div className="page__contact-hero-content">
-          <h1 className="page__contact-hero-title">{t('pages.contactTitle')}</h1>
-          <p className="page__contact-hero-subtitle">{t('pages.contactSubtitle')}</p>
-        </div>
-      </div>
-      <div className="page__container">
-        <div className="page__contact-form-section">
-          <div className="page__contact-form-header">
-            <h3 className="page__contact-form-title">{t('pages.sendMessage')}</h3>
-            <p className="page__contact-form-desc">{t('pages.messageDesc')}</p>
+    <div className="eqd page-contact">
+      <section className="page-title">
+        <h1>
+          {t('pages.contactTitle')}
+        </h1>
+        <div className="accent-rule"></div>
+        <p>
+          {t('pages.contactSubtitle')}
+        </p>
+      </section>
+      <div style={{ width: "100%", background: "#F6F1E7", padding: "64px 6% 84px", boxSizing: "border-box" }}>
+        <div className="rg-2" style={{ maxWidth: "1020px", margin: "0 auto", display: "grid", gridTemplateColumns: "minmax(0,.78fr) minmax(0,1.22fr)", borderRadius: "34px", overflow: "hidden", boxShadow: "0 22px 54px rgba(47,74,71,.14)" }}>
+          <div style={{ position: "relative", overflow: "hidden", background: "linear-gradient(135deg,#4F7A76 0%,#3f6965 100%)", color: "#F6F1E7", padding: "44px 34px 40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div style={{ position: "absolute", left: "160px", top: "-90px", width: "240px", height: "240px", borderRadius: "50%", background: "rgba(246,241,231,0.08)" }}></div>
+            <div style={{ position: "absolute", left: "-130px", bottom: "-90px", width: "280px", height: "280px", borderRadius: "50%", background: "rgba(246,241,231,0.06)" }}></div>
+            <div style={{ position: "relative" }}>
+              <span className="eq"></span>
+              <div style={{ marginTop: "30px" }}>
+                <div style={{ display: "flex", gap: "16px", alignItems: "flex-start", padding: "18px 0", borderTop: "1px solid rgba(246,241,231,.2)" }}>
+                  <span style={{ width: "46px", height: "46px", borderRadius: "50%", background: "rgba(246,241,231,.14)", display: "inline-flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
+                    <svg fill="none" height="22" stroke="#D9A441" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="22">
+                      <rect height="14" rx="2" width="18" x="3" y="5" />
+                      <path d="M3 7l9 6 9-6" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div style={{ fontSize: "11.5px", fontWeight: "800", letterSpacing: "1.5px", textTransform: "uppercase", color: "#D9A441", marginBottom: "5px" }}>
+                      {t('pages.emailTitle')}
+                    </div>
+                    <div style={{ fontSize: "16px", lineHeight: "1.55", fontWeight: "600" }}>
+                      equalify26@gmail.com
+                    </div>
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: "16px", alignItems: "flex-start", padding: "18px 0", borderTop: "1px solid rgba(246,241,231,.2)" }}>
+                  <span style={{ width: "46px", height: "46px", borderRadius: "50%", background: "rgba(246,241,231,.14)", display: "inline-flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
+                    <svg fill="none" height="22" stroke="#D9A441" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="22">
+                      <path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" />
+                      <circle cx="12" cy="10" r="2.5" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div style={{ fontSize: "11.5px", fontWeight: "800", letterSpacing: "1.5px", textTransform: "uppercase", color: "#D9A441", marginBottom: "5px" }}>
+                      {t('pages.addressTitle')}
+                    </div>
+                    <div style={{ fontSize: "16px", lineHeight: "1.55", fontWeight: "600" }}>
+                      Warsaw
+                      <br />
+                      Poland
+                    </div>
+                  </div>
+                </div>
+                <div style={{ borderTop: "1px solid rgba(246,241,231,.2)", paddingTop: "22px" }}>
+                  <div style={{ fontSize: "11.5px", fontWeight: "800", letterSpacing: "1.5px", textTransform: "uppercase", color: "#D9A441", marginBottom: "14px" }}>
+                    {t('pages.connectWithUs')}
+                  </div>
+                  <div style={{ display: "flex", gap: "12px" }}>
+                    <span aria-label="Facebook" style={{ width: "42px", height: "42px", borderRadius: "50%", background: "#1877F2", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <svg height="20" viewBox="0 0 24 24" width="20">
+                        <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z" fill="#FFFFFF" />
+                      </svg>
+                    </span>
+                    <a href="https://www.instagram.com/equalify_pl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ width: "42px", height: "42px", borderRadius: "50%", background: "linear-gradient(45deg,#F9CE34 0%,#EE2A7B 50%,#6228D7 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <svg height="20" viewBox="0 0 24 24" width="20">
+                        <rect fill="none" height="18" rx="5" stroke="#FFFFFF" strokeWidth="1.8" width="18" x="3" y="3" />
+                        <circle cx="12" cy="12" fill="none" r="4" stroke="#FFFFFF" strokeWidth="1.8" />
+                        <circle cx="17.2" cy="6.8" fill="#FFFFFF" r="1.1" />
+                      </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/equalify-foundation/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ width: "42px", height: "42px", borderRadius: "50%", background: "#0A66C2", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <svg height="19" viewBox="0 0 24 24" width="19">
+                        <rect fill="#FFFFFF" height="12" width="3.5" x="3" y="9" />
+                        <circle cx="4.7" cy="4.8" fill="#FFFFFF" r="2.2" />
+                        <path d="M10 9h3.3v1.8c.6-1 1.8-2.1 3.8-2.1 3.1 0 4.4 2 4.4 5.3V21h-3.5v-6.3c0-1.6-.6-2.7-2-2.7-1.1 0-1.8.8-2.1 1.5-.1.3-.1.6-.1 1V21H10V9z" fill="#FFFFFF" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+                      </div>
+          <div className="cf">
+            <h2 className="h2" style={{ fontSize: "36px", color: "#2F4A47" }}>
+              {t('pages.sendMessage')}
+            </h2>
+            <p style={{ fontSize: "15px", lineHeight: "1.7", margin: "10px 0 26px" }}>
+              {t('pages.messageDesc')}
+            </p>
+            <form id="contact-form" onSubmit={handleSubmit}>
+              <div className="cf__row">
+                <div className="cf__field">
+                  <label htmlFor="cf-name">{t('pages.nameLabel')}<span>*</span></label>
+                  <input autoComplete="name" id="cf-name" name="name" required type="text" value={formData.name} onChange={handleChange} />
+                </div>
+                <div className="cf__field">
+                  <label htmlFor="cf-email">{t('pages.emailLabel')}<span>*</span></label>
+                  <input autoComplete="email" id="cf-email" name="email" required type="email" value={formData.email} onChange={handleChange} />
+                </div>
+              </div>
+              <div className="cf__field">
+                <label htmlFor="cf-phone">{t('pages.phoneLabel')}</label>
+                <input autoComplete="tel" id="cf-phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
+              </div>
+              <div className="cf__field">
+                <label htmlFor="cf-subject">{t('pages.subjectLabel')}<span>*</span></label>
+                <select id="cf-subject" name="subject" required value={formData.subject} onChange={handleChange}>
+                  <option value="" disabled>{t('pages.selectSubject')}</option>
+                  {SUBJECT_KEYS.map((k) => (
+                    <option key={k} value={t('pages.subjectOptions.' + k)}>{t('pages.subjectOptions.' + k)}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="cf__field">
+                <label htmlFor="cf-message">{t('pages.messageLabel')}<span>*</span></label>
+                <textarea id="cf-message" name="message" required rows="6" value={formData.message} onChange={handleChange}></textarea>
+              </div>
+              <button className="cf__send" type="submit" disabled={submitState === 'sending'}>
+                <svg fill="none" height="18" stroke="#2F4A47" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" viewBox="0 0 24 24" width="18">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+                {submitState === 'sending' ? t('pages.formSending') : t('pages.sendButton')}
+              </button>
+              <p className={'cf__status' + (submitState === 'error' ? ' is-error' : '')} role={submitState === 'error' ? 'alert' : 'status'}>
+                {submitState === 'success' && t('pages.formSuccess')}
+                {submitState === 'error' && (errorDetail || t('pages.formError'))}
+              </p>
+            </form>
           </div>
-          <form className="page__contact-form" onSubmit={handleSubmit}>
-            {submitState === 'success' && (
-              <p className="page__form-feedback page__form-feedback--success" role="status">
-                {t('pages.formSuccess')}
-              </p>
-            )}
-            {submitState === 'error' && (
-              <p className="page__form-feedback page__form-feedback--error" role="alert">
-                {errorDetail || t('pages.formError')}
-              </p>
-            )}
-            <div className="page__form-row">
-              <div className="page__form-group">
-                <label htmlFor="name" className="page__form-label">
-                  {t('pages.nameLabel')} <span className="page__form-required">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="page__form-input"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="page__form-group">
-                <label htmlFor="email" className="page__form-label">
-                  {t('pages.emailLabel')} <span className="page__form-required">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="page__form-input"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div className="page__form-group">
-              <label htmlFor="phone" className="page__form-label">
-                {t('pages.phoneLabel')}
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                className="page__form-input"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="page__form-group">
-              <label htmlFor="subject" className="page__form-label">
-                {t('pages.subjectLabel')} <span className="page__form-required">*</span>
-              </label>
-              <select
-                id="subject"
-                name="subject"
-                className="page__form-select"
-                required
-                value={formData.subject}
-                onChange={handleChange}
-              >
-                <option value="">{t('pages.selectSubject')}</option>
-                <option value={t('pages.subjectOptions.consultation')}>{t('pages.subjectOptions.consultation')}</option>
-                <option value={t('pages.subjectOptions.training')}>{t('pages.subjectOptions.training')}</option>
-                <option value={t('pages.subjectOptions.workshop')}>{t('pages.subjectOptions.workshop')}</option>
-                <option value={t('pages.subjectOptions.speaking')}>{t('pages.subjectOptions.speaking')}</option>
-                <option value={t('pages.subjectOptions.research')}>{t('pages.subjectOptions.research')}</option>
-                <option value={t('pages.subjectOptions.mentoring')}>{t('pages.subjectOptions.mentoring')}</option>
-                <option value={t('pages.subjectOptions.media')}>{t('pages.subjectOptions.media')}</option>
-                <option value={t('pages.subjectOptions.other')}>{t('pages.subjectOptions.other')}</option>
-              </select>
-            </div>
-            <div className="page__form-group">
-              <label htmlFor="message" className="page__form-label">
-                {t('pages.messageLabel')} <span className="page__form-required">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                className="page__form-textarea"
-                rows="6"
-                required
-                value={formData.message}
-                onChange={handleChange}
-              />
-            </div>
-            <button type="submit" className="page__form-submit" disabled={submitState === 'sending'}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-              </svg>
-              {submitState === 'sending' ? t('pages.formSending') : t('pages.sendButton')}
-            </button>
-          </form>
-        </div>
-
-        <div className="page__contact-info-section">
-            <div className="page__contact-info-block">
-              <div className="page__contact-info-item">
-                <div className="page__contact-info-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <path d="m22 6-10 7L2 6" />
-                  </svg>
-                </div>
-                <div className="page__contact-info-content">
-                  <h3 className="page__contact-info-title">{t('pages.emailTitle')}</h3>
-                  <a href="mailto:equalify26@gmail.com" className="page__contact-info-link">
-                    equalify26@gmail.com
-                  </a>
-                </div>
-              </div>
-              <div className="page__contact-info-item">
-                <div className="page__contact-info-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </div>
-                <div className="page__contact-info-content">
-                  <h3 className="page__contact-info-title">{t('pages.addressTitle')}</h3>
-                  <p className="page__contact-info-text">
-                    Warsaw<br />
-                    Poland
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="page__contact-social">
-              <h3 className="page__contact-social-title">{t('pages.connectWithUs')}</h3>
-              <div className="page__contact-social-links">
-                <a href="#" aria-label="Facebook" aria-disabled="true" className="page__contact-social-link page__contact-social-link--facebook is-disabled">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
-                </a>
-                <a href="https://www.instagram.com/equalify_pl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="page__contact-social-link page__contact-social-link--instagram">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
-                </a>
-                <a href="#" aria-label="LinkedIn" aria-disabled="true" className="page__contact-social-link page__contact-social-link--linkedin is-disabled">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
         </div>
       </div>
     </div>

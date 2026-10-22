@@ -1,6 +1,6 @@
 /* Shared styles for content pages */
 .page {
-  padding: 6rem 10px 4rem;
+  padding: 2.5rem 10px 4rem;
   min-height: 60vh;
 }
 
@@ -683,7 +683,7 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 0 2rem;
-  background-image: linear-gradient(135deg, rgba(61, 97, 94, 0.78) 0%, rgba(79, 122, 118, 0.78) 50%, rgba(50, 77, 74, 0.78) 100%), url('/images/image-landing%202.jpg');
+  background: linear-gradient(135deg, #2F4A47 0%, #3f615d 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -692,7 +692,7 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-top: 0;
-  padding-top: calc(3rem + 80px);
+  padding-top: 3rem;
 }
 
 .page__hero::before,
@@ -1256,7 +1256,7 @@
   .page__hero,
   .page__contact-hero {
     min-height: 120px;
-    padding: calc(2.5rem + 80px) 0 1.5rem;
+    padding: 2.5rem 0 1.5rem;
   }
 
   .page__contact-form-section {
@@ -1433,7 +1433,7 @@
   .page__hero,
   .page__contact-hero {
     min-height: 100px;
-    padding: calc(2rem + 80px) 0 1.25rem;
+    padding: 2rem 0 1.25rem;
   }
 }
 
@@ -2529,3 +2529,14 @@
   }
 }
 
+
+/* Plain hero: no glossy overlay (photos are only used on the home page) */
+.page__hero::after,
+.page__contact-hero::after {
+  display: none;
+}
+
+/* Resource detail: its green header block starts right under the navigation */
+.page:has(.resource-detail__page-header) {
+  padding-top: 0;
+}

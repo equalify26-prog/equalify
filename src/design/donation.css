@@ -1,0 +1,47 @@
+.eqd.page-donation .kept { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+.eqd.page-donation .disp { font-family: 'Cormorant Garamond', Georgia, serif; }
+.eqd.page-donation .eq { display: inline-block; width: 44px; height: 17px; background: linear-gradient(#D9A441,#D9A441) top/100% 5px no-repeat, linear-gradient(#D9A441,#D9A441) bottom/100% 5px no-repeat; }
+.eqd.page-donation .eq.m { width: 30px; height: 12px; background-size: 100% 3.5px; }
+.eqd.page-donation .h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 34px; line-height: 1.05; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
+.eqd.page-donation .pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 6px 16px 6px 12px; font-size: 13px; font-weight: 700; }
+.eqd.page-donation .logoph { width: 100%; height: 100%; border: 2px dashed #4F7A76; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 700; color: #2F4A47; line-height: 1.2; box-sizing: border-box; padding: 4px; }
+.eqd.page-donation .btn { display: inline-flex; align-items: center; gap: 12px; background: #D9A441; color: #2F4A47; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 14px 16px 14px 28px; white-space: nowrap; }
+.eqd.page-donation .btn i { width: 28px; height: 28px; border-radius: 50%; background: #2F4A47; display: inline-flex; align-items: center; justify-content: center; }
+.eqd.page-donation .chip { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 8px 16px; font-size: 13.5px; font-weight: 600; }
+.eqd.page-donation .ev { display: flex; gap: 18px; align-items: center; }
+.eqd.page-donation .date { flex: none; width: 66px; height: 74px; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
+.eqd.page-donation .date b { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 28px; }
+.eqd.page-donation .date span { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; }
+.eqd.page-donation .evt { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 23px; line-height: 1.15; color: #2F4A47; margin: 0 0 8px; }
+.eqd.page-donation .evm { display: flex; gap: 6px 18px; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; color: #2F4A47; }
+.eqd.page-donation .evm span { display: inline-flex; align-items: center; gap: 7px; }
+.eqd.page-donation .dn { background: #FFFFFF; padding: 40px 38px 38px; }
+.eqd.page-donation .dn__h { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.15; color: #2F4A47; margin: 0 0 12px; }
+.eqd.page-donation .dn__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.eqd.page-donation .amt { position: relative; display: block; cursor: pointer; background: #F6F1E7; box-shadow: inset 0 0 0 1.5px #E3D9C2; border-radius: 20px; padding: 18px; box-sizing: border-box; color: #2F4A47; transition: box-shadow .15s; }
+.eqd.page-donation .amt input { position: absolute; opacity: 0; pointer-events: none; }
+.eqd.page-donation .amt:focus-within { outline: 2px solid #4F7A76; outline-offset: 2px; }
+.eqd.page-donation .amt__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.eqd.page-donation .amt__icon { width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; flex: none; color: #4F7A76; }
+.eqd.page-donation .amt__icon svg { stroke: currentColor; }
+.eqd.page-donation .amt__radio { width: 22px; height: 22px; border-radius: 50%; box-sizing: border-box; border: 2px solid #CFC6B2; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.eqd.page-donation .amt__value { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 30px; line-height: 1; color: #2F4A47; }
+.eqd.page-donation .amt__desc { display: block; font-size: 13.5px; line-height: 1.45; margin-top: 6px; color: #4F4F4F; }
+.eqd.page-donation .amt.is-selected { background: linear-gradient(135deg, #4F7A76 0%, #3f6965 100%); box-shadow: 0 14px 28px rgba(47,74,71,.22); color: #F6F1E7; }
+.eqd.page-donation .amt.is-selected .amt__icon { background: #D9A441; color: #2F4A47; }
+.eqd.page-donation .amt.is-selected .amt__radio { border-color: #D9A441; background: transparent; }
+.eqd.page-donation .amt.is-selected .amt__radio::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: #D9A441; }
+.eqd.page-donation .amt.is-selected .amt__value { color: #F6F1E7; }
+.eqd.page-donation .amt.is-selected .amt__desc { color: rgba(246,241,231,.92); }
+.eqd.page-donation .dn__other { margin-top: 14px; }
+.eqd.page-donation .dn__other label { display: block; font-size: 11.5px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #2F4A47; margin-bottom: 8px; }
+.eqd.page-donation .dn__other input { width: 100%; height: 52px; box-sizing: border-box; border: 0; border-radius: 14px; background: #F6F1E7; box-shadow: inset 0 0 0 1.5px #E3D9C2; padding: 0 16px; font-family: inherit; font-size: 16px; color: #262322; outline: none; }
+.eqd.page-donation .dn__other input:focus { box-shadow: inset 0 0 0 2px #4F7A76; }
+.eqd.page-donation .dn__total { border-top: 1px solid #E3D9C2; margin: 24px 0 18px; padding-top: 18px; display: flex; justify-content: space-between; align-items: baseline; }
+.eqd.page-donation .dn__total span { font-size: 16px; font-weight: 600; color: #4F4F4F; }
+.eqd.page-donation .dn__total strong { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 34px; color: #2F4A47; }
+.eqd.page-donation .dn__note { margin: 0 0 18px; font-size: 13.5px; line-height: 1.6; color: #4F4F4F; }
+.eqd.page-donation .dn__btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 14px; border: 0; cursor: pointer; font-family: inherit; background: #D9A441; color: #2F4A47; font-weight: 800; font-size: 17px; border-radius: 999px; padding: 17px 22px; box-shadow: 0 14px 28px rgba(217,164,65,.30); }
+.eqd.page-donation .dn__btn:hover { filter: brightness(1.05); }
+.eqd.page-donation .dn__btn i { width: 28px; height: 28px; border-radius: 50%; background: #2F4A47; display: inline-flex; align-items: center; justify-content: center; }
+.eqd.page-donation .dn__status { margin: 14px 0 0; font-size: 14px; color: #2F4A47; min-height: 1em; }
