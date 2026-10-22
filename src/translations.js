@@ -13,6 +13,8 @@ export const translations = {
     hero: {
       tagline: 'Equal opportunities. Stronger communities.',
       cta: 'About Us',
+      learnMore: 'Learn More',
+      ourProjects: 'Our Projects',
     },
     activities: {
       title: 'Our Activities',
@@ -86,6 +88,7 @@ export const translations = {
       exploreProjects: 'Explore our current and past projects',
       resourcesTitle: 'Resources',
       resourcesHeroSubtitle: 'Explore practical tools, guides, and resources created through our projects.',
+      projectsIntro: 'Equalify Foundation implements local and international initiatives that promote inclusion, leadership, and participation. Our projects combine education, research, and community action to create measurable impact.',
       hereYouCanFind: 'Here you can find:',
       resourcesPublications: 'publications',
       resourcesPolicy: 'policy materials',
@@ -154,6 +157,8 @@ export const translations = {
     hero: {
       tagline: 'Równe szanse. Silniejsze społeczności.',
       cta: 'O nas',
+      learnMore: 'Dowiedz się więcej',
+      ourProjects: 'Nasze projekty',
     },
     activities: {
       title: 'Nasze działania',
@@ -227,6 +232,7 @@ export const translations = {
       exploreProjects: 'Poznaj nasze obecne i zakończone projekty',
       resourcesTitle: 'Zasoby',
       resourcesHeroSubtitle: 'Praktyczne narzędzia, przewodniki i materiały opracowane w ramach naszych projektów.',
+      projectsIntro: 'Fundacja Equalify realizuje lokalne i międzynarodowe inicjatywy promujące włączenie, przywództwo i uczestnictwo. Nasze projekty łączą edukację, badania i działania społeczne, aby tworzyć wymierny wpływ.',
       hereYouCanFind: 'Tu znajdziesz:',
       resourcesPublications: 'publikacje',
       resourcesPolicy: 'materiały polityczne',

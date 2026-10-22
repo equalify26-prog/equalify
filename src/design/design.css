@@ -1,0 +1,45 @@
+/* Design layer (scoped under .eqd so it never touches the rest of the app)
+   Colours: teal #4F7A76 · dark teal #2F4A47 · mustard #D9A441 · cream #F6F1E7 */
+.eqd {
+  --teal: #4F7A76; --teal-dark: #2F4A47; --teal-mid: #3f6965;
+  --mustard: #D9A441; --cream: #F6F1E7; --ink: #262322; --beige: #E3D9C2;
+  --font-head: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  background: #fff; color: #262322; font-family: var(--font-body); font-weight: 400;
+  line-height: normal; text-align: left; width: 100%; overflow-x: hidden;
+}
+/* The app has a global reset (margin/padding 0, border-box). The designs were built on plain browser defaults, so restore them here. */
+.eqd *, .eqd *::before, .eqd *::after { box-sizing: revert; margin: revert; padding: revert; }
+.eqd ul, .eqd ol { list-style: revert; }
+.eqd img { display: inline; }
+.eqd button { font-family: revert; border: revert; background: revert; cursor: revert; }
+.eqd a { color: inherit; text-decoration: none; }
+.eqd :focus-visible { outline: 2px solid #D9A441; outline-offset: 2px; }
+.eqd [hidden] { display: none !important; }
+.eqd .cf__status.is-error { color: #b3261e; }
+.eqd .dn__status.is-error { color: #b3261e; }
+
+.eqd .page-title { width: 100%; box-sizing: border-box; background: linear-gradient(135deg, #2F4A47 0%, #3f615d 100%); padding: 70px 24px; text-align: center; font-family: var(--font-head); font-weight: 500; }
+.eqd .page-title h1 { font-family: var(--font-head); font-weight: 700; font-size: 48px; letter-spacing: 3px; text-transform: uppercase; color: var(--cream); margin: 0; }
+.eqd .page-title .accent-rule { width: 56px; height: 4px; background: var(--mustard); border-radius: 2px; margin: 14px auto 22px; }
+.eqd .page-title p { max-width: 760px; margin: 0 auto; color: #e3ded0; font-size: 20px; line-height: 1.5; }
+
+/* ---------- responsive (class based) ---------- */
+@media (max-width: 900px) {
+  .eqd .rg-n { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .eqd .rg-2 { grid-template-columns: minmax(0, 1fr) !important; }
+  .eqd .cf__row { grid-template-columns: minmax(0, 1fr); }
+  .eqd .cf__row .cf__field { margin-top: 16px; }
+  .eqd .cf__row .cf__field:first-child { margin-top: 0; }
+  .eqd .rp-big { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .eqd .page-title { padding: 52px 20px; }
+  .eqd .page-title h1 { font-size: 40px; }
+}
+@media (max-width: 600px) {
+  .eqd .rg-n, .eqd .rg-af { grid-template-columns: minmax(0, 1fr) !important; }
+  .eqd .page-title h1, .eqd h1 { font-size: clamp(30px, 9vw, 40px) !important; letter-spacing: 1.5px !important; }
+  .eqd h1[style], .eqd .h2, .eqd h2.heading { overflow-wrap: anywhere; }
+  .eqd .cf, .eqd .dn { padding: 28px 20px; }
+  .eqd .dn__grid { grid-template-columns: minmax(0, 1fr); }
+  .eqd .rp-card { padding: 32px 24px !important; }
+}

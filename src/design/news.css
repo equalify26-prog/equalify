@@ -1,0 +1,17 @@
+.eqd.page-news .kept { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+.eqd.page-news .disp { font-family: 'Cormorant Garamond', Georgia, serif; }
+.eqd.page-news .eq { display: inline-block; width: 44px; height: 17px; background: linear-gradient(#D9A441,#D9A441) top/100% 5px no-repeat, linear-gradient(#D9A441,#D9A441) bottom/100% 5px no-repeat; }
+.eqd.page-news .eq.m { width: 30px; height: 12px; background-size: 100% 3.5px; }
+.eqd.page-news .h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 34px; line-height: 1.05; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
+.eqd.page-news .pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 6px 16px 6px 12px; font-size: 13px; font-weight: 700; }
+.eqd.page-news .logoph { width: 100%; height: 100%; border: 2px dashed #4F7A76; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 700; color: #2F4A47; line-height: 1.2; box-sizing: border-box; padding: 4px; }
+.eqd.page-news .btn { display: inline-flex; align-items: center; gap: 12px; background: #D9A441; color: #2F4A47; font-weight: 700; font-size: 15px; border-radius: 999px; padding: 14px 16px 14px 28px; white-space: nowrap; }
+.eqd.page-news .btn i { width: 28px; height: 28px; border-radius: 50%; background: #2F4A47; display: inline-flex; align-items: center; justify-content: center; }
+.eqd.page-news .chip { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 8px 16px; font-size: 13.5px; font-weight: 600; }
+.eqd.page-news .ev { display: flex; gap: 18px; align-items: center; }
+.eqd.page-news .date { flex: none; width: 66px; height: 74px; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
+.eqd.page-news .date b { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 28px; }
+.eqd.page-news .date span { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; }
+.eqd.page-news .evt { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 23px; line-height: 1.15; color: #2F4A47; margin: 0 0 8px; }
+.eqd.page-news .evm { display: flex; gap: 6px 18px; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; color: #2F4A47; }
+.eqd.page-news .evm span { display: inline-flex; align-items: center; gap: 7px; }

@@ -1,19 +1,19 @@
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background-image: linear-gradient(135deg, rgba(61, 97, 94, 0.88) 0%, rgba(79, 122, 118, 0.86) 50%, rgba(50, 77, 74, 0.9) 100%), url('/images/image-landing%202.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #4F7A76;
   color: var(--color-white);
   box-shadow: var(--shadow);
 }
 
+/* Home page only: transparent bar floating over the hero photo */
 .header.header--hero {
-  background-image: linear-gradient(135deg, rgba(61, 97, 94, 0.55) 0%, rgba(79, 122, 118, 0.48) 50%, rgba(50, 77, 74, 0.58) 100%);
+  position: fixed;
+  background: linear-gradient(135deg, rgba(61, 97, 94, 0.55) 0%, rgba(79, 122, 118, 0.48) 50%, rgba(50, 77, 74, 0.58) 100%);
+  box-shadow: none;
 }
 
 .header__inner {
@@ -85,6 +85,11 @@
 
 .header__links a:hover {
   opacity: 0.85;
+}
+
+.header__links a.is-active {
+  font-weight: 700;
+  box-shadow: 0 2px 0 #D9A441;
 }
 
 .header__actions {
@@ -184,10 +189,7 @@
     right: 0;
     flex-direction: column;
     align-items: stretch;
-    background-image: linear-gradient(135deg, rgba(61, 97, 94, 0.92) 0%, rgba(79, 122, 118, 0.9) 50%, rgba(50, 77, 74, 0.94) 100%), url('/images/image-landing%202.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: #3f6965;
     padding: 1rem;
     gap: 1rem;
     max-height: 0;

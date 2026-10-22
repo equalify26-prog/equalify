@@ -1,0 +1,20 @@
+.eqd.page-resources .kept { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+.eqd.page-resources .eq { display: inline-block; width: 44px; height: 17px; background: linear-gradient(#D9A441,#D9A441) top/100% 5px no-repeat, linear-gradient(#D9A441,#D9A441) bottom/100% 5px no-repeat; }
+.eqd.page-resources .tab { position: relative; padding: 0 4px 14px; font-size: 16px; font-weight: 700; color: #6d6a65; }
+.eqd.page-resources .tab.on { color: #2F4A47; }
+.eqd.page-resources .tab.on::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 4px; border-radius: 2px; background: #D9A441; }
+.eqd.page-resources .item { display: flex; flex-direction: column; }
+.eqd.page-resources .cover { position: relative; overflow: hidden; aspect-ratio: 3 / 4; border-radius: 6px 20px 20px 6px; padding: 28px 26px 26px; box-sizing: border-box; box-shadow: 0 24px 50px rgba(47,74,71,0.20), inset 10px 0 0 rgba(0,0,0,0.10); margin-bottom: 26px; }
+.eqd.page-resources .logoph { width: 100%; height: 100%; border: 2px dashed #4F7A76; border-radius: 10px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; color: #2F4A47; line-height: 1.2; box-sizing: border-box; padding: 3px; }
+.eqd.page-resources .desc { font-size: 15px; line-height: 1.75; margin: 0 0 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.eqd.page-resources .meta { display: flex; gap: 14px 18px; flex-wrap: wrap; margin-bottom: 20px; margin-top: auto; }
+.eqd.page-resources .meta span { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #2F4A47; }
+.eqd.page-resources .acts { display: flex; align-items: center; gap: 10px; }
+.eqd.page-resources .dl { display: inline-flex; align-items: center; gap: 10px; background: #D9A441; color: #2F4A47; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 13px 20px; white-space: nowrap; }
+.eqd.page-resources .rb { width: 46px; height: 46px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #2F4A47; display: inline-flex; align-items: center; justify-content: center; }
+.eqd.page-resources .rb.dk { background: #2F4A47; }
+.eqd.page-resources button.tab { background: none; border: 0; cursor: pointer; font-family: inherit; }
+.eqd.page-resources .item[hidden] { display: none; }
+.eqd.page-resources .cover--img { padding: 0; background: #FFFFFF; }
+.eqd.page-resources .cover--img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.eqd.page-resources .cover--img::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 10px 0 0 rgba(0,0,0,0.10); pointer-events: none; }

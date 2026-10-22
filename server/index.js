@@ -9,7 +9,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
 const PORT = Number(process.env.PORT) || 3001
 
-const toEmail = process.env.CONTACT_TO_EMAIL || 'equalify26@gmail.com'
+// All form submissions (Contact page + "Start With Us" Volunteer/Partner) go to this inbox.
+const toEmail = 'equalify26@gmail.com'
 const fromEmail = process.env.SENDGRID_FROM_EMAIL
 const apiKey = process.env.SENDGRID_API_KEY
 

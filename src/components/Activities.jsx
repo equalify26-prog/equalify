@@ -2,85 +2,78 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import './Activities.css'
 
+const ARROW = (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+)
+
 const CARDS = [
   {
-    titleKey: 'activities.projectsTitle',
+    titleKey: 'nav.projects',
     descKey: 'activities.projectsDesc',
     href: '/projects',
+    image: '/images/activities/projects.jpg',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="7" width="18" height="13" rx="2" />
+        <path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18" />
       </svg>
     ),
-    image: '/images/projects.jpg',
-    cardClassName: '',
   },
   {
-    titleKey: 'activities.galleryTitle',
+    titleKey: 'nav.newsEvents',
     descKey: 'activities.galleryDesc',
     href: '/news',
+    image: '/images/activities/news-events.jpg',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <path d="m21 15-5-5L5 21" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <path d="M3 10h18M8 3v4M16 3v4" />
       </svg>
     ),
-    image: '/images/news-events.jpg',
-    cardClassName: 'activities__card--news',
   },
   {
-    titleKey: 'activities.resourcesTitle',
+    titleKey: 'nav.resources',
     descKey: 'activities.resourcesDesc',
     href: '/resources',
+    image: '/images/activities/resources.jpg',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-        <path d="M8 7h8M8 11h8" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19a2 2 0 012-2h13M9 7h6" />
       </svg>
     ),
-    image: '/images/resources.jpg',
-    cardClassName: 'activities__card--resources',
   },
 ]
 
 export default function Activities() {
   const { t } = useLanguage()
   return (
-    <section className="activities">
-      <div className="activities__inner">
-        <h2 className="activities__title">{t('activities.title')}</h2>
-        <div className="activities__grid">
+    <section className="act">
+      <div className="act__inner">
+        <h2 className="act__title">{t('activities.title')}</h2>
+        <span className="act__eq" aria-hidden="true" />
+        <div className="act__grid">
           {CARDS.map((card) => (
-            <Link
-              key={card.titleKey}
-              to={card.href}
-              className={`activities__card${card.cardClassName ? ` ${card.cardClassName}` : ''}`}
-            >
-              <div className="activities__card-bg" style={{ backgroundImage: `url(${card.image})` }} />
-              <div className="activities__card-overlay" />
-              <div className="activities__card-icon">{card.icon}</div>
-              <div className="activities__card-body">
-                <h3 className="activities__card-title">{t(card.titleKey)}</h3>
-                <p className="activities__card-desc">{t(card.descKey)}</p>
-                <span className="activities__card-link">
-                  {t('activities.learnMore')}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </span>
+            <Link key={card.titleKey} to={card.href} className="act__card">
+              <img className="act__img" src={card.image} alt="" loading="lazy" />
+              <span className="act__chip">{card.icon}</span>
+              <div className="act__foot">
+                <div>
+                  <h3>{t(card.titleKey)}</h3>
+                  <p>{t(card.descKey)}</p>
+                </div>
+                <span className="act__go">{ARROW}</span>
               </div>
             </Link>
           ))}
         </div>
-        <Link to="/news" className="activities__upcoming">
-          {t('activities.upcomingActivities')}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </Link>
+        <div className="act__cta">
+          <Link to="/news" className="act__btn">
+            {t('activities.upcomingActivities')}
+            <i>{ARROW}</i>
+          </Link>
+        </div>
       </div>
     </section>
   )

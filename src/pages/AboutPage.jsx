@@ -1,227 +1,241 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
-import './pages.css'
-
-const WHAT_WE_DO_ITEMS = [
-  { id: 'education', titleKey: 'pages.whatWeDoEducation', descKey: 'pages.whatWeDoEducationDesc', focusKey: 'pages.whatWeDoEducationFocus', focusItems: ['pages.whatWeDoEducationFocus1', 'pages.whatWeDoEducationFocus2', 'pages.whatWeDoEducationFocus3', 'pages.whatWeDoEducationFocus4'] },
-  { id: 'youthWork', titleKey: 'pages.whatWeDoYouthWork', descKey: 'pages.whatWeDoYouthWorkDesc', supportKey: 'pages.whatWeDoYouthWorkSupport', supportItems: ['pages.whatWeDoYouthWorkSupport1', 'pages.whatWeDoYouthWorkSupport2', 'pages.whatWeDoYouthWorkSupport3', 'pages.whatWeDoYouthWorkSupport4'] },
-  { id: 'research', titleKey: 'pages.whatWeDoResearch', descKey: 'pages.whatWeDoResearchDesc', workKey: 'pages.whatWeDoResearchWork', workItems: ['pages.whatWeDoResearchWork1', 'pages.whatWeDoResearchWork2', 'pages.whatWeDoResearchWork3', 'pages.whatWeDoResearchWork4'] },
-  { id: 'community', titleKey: 'pages.whatWeDoCommunity', descKey: 'pages.whatWeDoCommunityDesc' },
-  { id: 'humanRights', titleKey: 'pages.whatWeDoHumanRights', descKey: 'pages.whatWeDoHumanRightsDesc' },
-  { id: 'networking', titleKey: 'pages.whatWeDoNetworking', descKey: 'pages.whatWeDoNetworkingDesc' },
-  { id: 'innovation', titleKey: 'pages.whatWeDoInnovation', descKey: 'pages.whatWeDoInnovationDesc' },
-  { id: 'support', titleKey: 'pages.whatWeDoSupport', descKey: 'pages.whatWeDoSupportDesc' },
-]
+import '../design/design.css'
+import '../design/about.css'
 
 export default function AboutPage() {
   const { t } = useLanguage()
-  const valueBoxesRef = useRef([])
-  const [expanded, setExpanded] = useState(null)
-  const [visibleItems, setVisibleItems] = useState(new Set())
-  const accordionItemsRef = useRef([])
-
-  const toggleAccordionItem = (id) => {
-    const itemIndex = WHAT_WE_DO_ITEMS.findIndex((i) => i.id === id)
-    const item = accordionItemsRef.current[itemIndex]
-    setVisibleItems((prev) => {
-      const next = new Set(prev)
-      next.add(id)
-      return next
-    })
-    if (item) item.classList.add('page__accordion-item--visible')
-    setExpanded((prev) => (prev === id ? null : id))
-  }
-
+  const { hash } = useLocation()
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px',
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('page__value-box--visible')
-        } else {
-          entry.target.classList.remove('page__value-box--visible')
-        }
-      })
-    }, observerOptions)
-
-    valueBoxesRef.current.forEach((box) => {
-      if (box) {
-        observer.observe(box)
-      }
-    })
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
-
-  useEffect(() => {
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('page__accordion-item--visible')
-          const index = accordionItemsRef.current.indexOf(entry.target)
-          if (index !== -1) {
-            setVisibleItems((prev) => {
-              const next = new Set(prev)
-              next.add(WHAT_WE_DO_ITEMS[index].id)
-              return next
-            })
-            observer.unobserve(entry.target)
-          }
-        }
-      })
-    }, observerOptions)
-    accordionItemsRef.current.forEach((el) => {
-      if (el && !el.classList.contains('page__accordion-item--visible')) observer.observe(el)
-    })
-    return () => observer.disconnect()
-  }, [])
-
+    if (!hash) return
+    const el = document.querySelector(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }, [hash])
   return (
-    <div className="page">
-      <div className="page__hero">
-        <div className="page__hero-content">
-          <h1 className="page__hero-title">{t('pages.aboutTitle')}</h1>
-          <p className="page__hero-subtitle">{t('pages.aboutHeroSubtitle')}</p>
-        </div>
+    <div className="eqd page-about">
+      <div style={{ width: "100%", background: "linear-gradient(135deg, #2F4A47 0%, #3f615d 100%)", padding: "70px 24px", boxSizing: "border-box", textAlign: "center" }}>
+        <h1 className="heading" style={{ color: "#F6F1E7", fontSize: "48px", letterSpacing: "3px" }}>
+          {t('pages.aboutTitle')}
+        </h1>
+        <div className="accent-rule center"></div>
+        <p style={{ color: "#e3ded0", fontSize: "18px", fontFamily: "'Cormorant Garamond', Georgia, serif", margin: "0" }}>
+          {t('pages.aboutHeroSubtitle')}
+        </p>
       </div>
-      <div className="page__container">
-        <section className="page__section page__section--with-image">
-          <div className="page__section-image page__section-image--left">
-            <img src="/images/about%20us%201.jpg" alt="Community collaboration" />
+      <div className="rp-big" style={{ width: "100%", background: "#ffffff", padding: "90px 8%", boxSizing: "border-box" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", gap: "64px", alignItems: "center", flexWrap: "wrap" }}>
+          <div style={{ flex: "1 1 380px", minWidth: "300px" }}>
+            <img alt="The Equalify Foundation team" src="/images/design/about-team.jpg" style={{ width: "100%", height: "360px", objectFit: "cover", borderRadius: "10px", boxShadow: "0 18px 40px rgba(47,74,71,0.18)" }} />
           </div>
-          <div className="page__section-content">
-            <h2 className="page__heading">{t('pages.whoWeAre')}</h2>
-            <p className="page__paragraph">
+          <div style={{ flex: "1 1 420px", minWidth: "300px" }}>
+            <div className="eyebrow">
+              OUR STORY
+            </div>
+            <h2 className="heading" style={{ fontSize: "30px" }}>
+              {t('pages.whoWeAre')}
+            </h2>
+            <div className="accent-rule"></div>
+            <p className="body-copy">
               Equalify Foundation is a non-profit organisation working to advance equality, participation, and social justice. We operate at the intersection of youth empowerment, migration, human rights, and community development.
             </p>
-            <p className="page__paragraph">
+            <p className="body-copy" style={{ marginBottom: "0" }}>
               Our work is rooted in cooperation with communities. We design initiatives together with those who experience barriers, ensuring our actions respond to real needs and produce sustainable impact.
             </p>
           </div>
-        </section>
-
-        <section className="page__section page__section--with-image">
-          <div className="page__section-content">
-            <h2 className="page__heading">{t('pages.mission')}</h2>
-            <p className="page__paragraph">
-              Our mission is to empower marginalized communities, especially youth, migrants, and underrepresented groups, by promoting inclusion, equality, and social justice. We work to dismantle systemic obstacles, expand access to opportunities, and strengthen active citizenship through dialogue, education, and innovation.
-            </p>
+        </div>
+      </div>
+      <div className="rp-big" style={{ width: "100%", background: "#FFFFFF", padding: "90px 8%", boxSizing: "border-box" }}>
+        <div className="rg-af" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(420px, 1fr))", gap: "36px" }}>
+          <div className="card">
+            <img alt="Hands joined together" src="/images/design/about-mission.jpg" style={{ width: "100%", height: "260px", objectFit: "cover", display: "block" }} />
+            <div style={{ padding: "30px 4px 0" }}>
+              <h2 className="heading" style={{ fontSize: "28px" }}>
+                {t('pages.mission')}
+              </h2>
+              <div className="accent-rule"></div>
+              <p style={{ margin: "0", fontSize: "18px", lineHeight: "1.7", color: "#262322" }}>
+                Our mission is to empower marginalized communities, especially youth, migrants, and underrepresented groups, by promoting inclusion, equality, and social justice. We work to dismantle systemic obstacles, expand access to opportunities, and strengthen active citizenship through dialogue, education, and innovation.
+              </p>
+            </div>
           </div>
-          <div className="page__section-image page__section-image--right">
-            <img src="/images/landing-about%20us.jpg" alt="Community empowerment" />
+          <div className="card">
+            <img alt="Two hands linking fingers" src="/images/design/about-vision.jpg" style={{ width: "100%", height: "260px", objectFit: "cover", display: "block" }} />
+            <div style={{ padding: "30px 4px 0", flex: "1" }}>
+              <h2 className="heading" style={{ fontSize: "28px" }}>
+                {t('pages.vision')}
+              </h2>
+              <div className="accent-rule"></div>
+              <p style={{ margin: "0", fontSize: "18px", lineHeight: "1.7", color: "#262322" }}>
+                We envision societies where every individual can participate fully and with dignity, where diversity is valued as a strength, and where cooperation across differences creates fair and sustainable futures.
+              </p>
+            </div>
           </div>
-        </section>
-
-        <section className="page__section page__section--with-image">
-          <div className="page__section-image page__section-image--left">
-            <img src="/images/about%20us%202.jpg" alt="Inclusive participation" />
-          </div>
-          <div className="page__section-content">
-            <h2 className="page__heading">{t('pages.vision')}</h2>
-            <p className="page__paragraph">
-              We envision societies where every individual can participate fully and with dignity, where diversity is valued as a strength, and where cooperation across differences creates fair and sustainable futures.
-            </p>
-          </div>
-        </section>
-
-        <section className="page__section page__section--centered">
-          <h2 className="page__heading page__heading--centered">{t('pages.ourValues')}</h2>
-          <div className="page__values-chain">
-            {[
-              { title: 'Inclusion', desc: 'Everyone deserves access, voice, and opportunity.' },
-              { title: 'Diversity', desc: 'Different experiences enrich societies.' },
-              { title: 'Social Justice', desc: 'Inequality must be challenged at its roots.' },
-              { title: 'Human Dignity', desc: "Every person's worth must be respected and protected." },
-              { title: 'Solidarity', desc: 'Collective action creates lasting change.' },
-              { title: 'Active Citizenship', desc: 'People should shape the communities they live in.' },
-            ].map((value, i) => (
-              <div
-                key={value.title}
-                className="page__value-circle-wrap"
-                style={{ zIndex: 6 - i, marginLeft: i === 0 ? 0 : undefined }}
-              >
-                <div
-                  ref={(el) => (valueBoxesRef.current[i] = el)}
-                  className="page__value-circle"
-                  style={{ animationDelay: `${(i + 1) * 0.1}s` }}
-                >
-                  <span className="page__value-circle-inner">
-                    <span className="page__value-circle-content">
-                      <span className="page__value-circle-title">{value.title}</span>
-                      <span className="page__value-circle-desc">{value.desc}</span>
-                    </span>
-                  </span>
-                </div>
+        </div>
+      </div>
+      <div className="rp-big" style={{ width: "100%", background: "#F6F1E7", padding: "90px 8% 100px", boxSizing: "border-box" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
+          <h2 className="heading" style={{ fontSize: "30px" }}>
+            {t('pages.ourValues')}
+          </h2>
+          <div className="accent-rule center"></div>
+          <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "28px", marginTop: "46px", maxWidth: "880px", marginLeft: "auto", marginRight: "auto" }}>
+            <div style={{ width: "180px", height: "180px", borderRadius: "50%", background: "#4F7A76", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "18px", boxSizing: "border-box", boxShadow: "0 14px 28px rgba(47,74,71,0.3)" }}>
+              <div style={{ color: "#F6F1E7", fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: "700", fontSize: "17px", marginBottom: "8px" }}>
+                Inclusion
               </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="what-we-do" className="page__section page__section--centered">
-          <h2 className="page__heading page__heading--centered">{t('pages.whatWeDoTitle')}</h2>
-          <div className="page__accordion">
-            {WHAT_WE_DO_ITEMS.map((item, index) => (
-              <div
-                key={item.id}
-                ref={(el) => {
-                  accordionItemsRef.current[index] = el
-                  if (el && visibleItems.has(item.id)) el.classList.add('page__accordion-item--visible')
-                }}
-                className={`page__accordion-item ${visibleItems.has(item.id) ? 'page__accordion-item--visible' : ''} ${expanded === item.id ? 'page__accordion-item--expanded' : ''}`}
-                style={{ animationDelay: `${(index + 1) * 0.1}s` }}
-              >
-                <button
-                  className="page__accordion-header"
-                  onClick={() => toggleAccordionItem(item.id)}
-                  aria-expanded={expanded === item.id}
-                >
-                  <span className="page__accordion-title">{t(item.titleKey)}</span>
-                  <span className="page__accordion-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
-                  </span>
-                </button>
-                {expanded === item.id && (
-                  <div className="page__accordion-content">
-                    <p className="page__paragraph">{t(item.descKey)}</p>
-                    {item.focusKey && (
-                      <>
-                        <p className="page__subheading">{t(item.focusKey)}</p>
-                        <ul className="page__list">
-                          {item.focusItems?.map((key) => <li key={key}>{t(key)}</li>)}
-                        </ul>
-                      </>
-                    )}
-                    {item.supportKey && (
-                      <>
-                        <p className="page__subheading">{t(item.supportKey)}</p>
-                        <ul className="page__list">
-                          {item.supportItems?.map((key) => <li key={key}>{t(key)}</li>)}
-                        </ul>
-                      </>
-                    )}
-                    {item.workKey && (
-                      <>
-                        <p className="page__subheading">{t(item.workKey)}</p>
-                        <ul className="page__list">
-                          {item.workItems?.map((key) => <li key={key}>{t(key)}</li>)}
-                        </ul>
-                      </>
-                    )}
-                  </div>
-                )}
+              <div style={{ color: "#F6F1E7", fontSize: "13px", lineHeight: "1.45" }}>
+                Everyone deserves access, voice, and opportunity.
               </div>
-            ))}
+            </div>
+            <div style={{ width: "180px", height: "180px", borderRadius: "50%", background: "#D9A441", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "18px", boxSizing: "border-box", boxShadow: "0 14px 28px rgba(217,164,65,0.35)" }}>
+              <div style={{ color: "#2F4A47", fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: "700", fontSize: "17px", marginBottom: "8px" }}>
+                Diversity
+              </div>
+              <div style={{ color: "#2F4A47", fontSize: "13px", lineHeight: "1.45" }}>
+                Different experiences enrich societies.
+              </div>
+            </div>
+            <div style={{ width: "180px", height: "180px", borderRadius: "50%", background: "#2F4A47", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "18px", boxSizing: "border-box", boxShadow: "0 14px 28px rgba(47,74,71,0.3)" }}>
+              <div style={{ color: "#F6F1E7", fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: "700", fontSize: "17px", marginBottom: "8px" }}>
+                Social Justice
+              </div>
+              <div style={{ color: "#F6F1E7", fontSize: "13px", lineHeight: "1.45" }}>
+                Inequality must be challenged at its roots.
+              </div>
+            </div>
+            <div style={{ width: "180px", height: "180px", borderRadius: "50%", background: "#4F7A76", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "18px", boxSizing: "border-box", boxShadow: "0 14px 28px rgba(47,74,71,0.3)" }}>
+              <div style={{ color: "#F6F1E7", fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: "700", fontSize: "17px", marginBottom: "8px" }}>
+                Human Dignity
+              </div>
+              <div style={{ color: "#F6F1E7", fontSize: "13px", lineHeight: "1.45" }}>
+                Every person's worth must be respected and protected.
+              </div>
+            </div>
+            <div style={{ width: "180px", height: "180px", borderRadius: "50%", background: "#D9A441", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "18px", boxSizing: "border-box", boxShadow: "0 14px 28px rgba(217,164,65,0.35)" }}>
+              <div style={{ color: "#2F4A47", fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: "700", fontSize: "17px", marginBottom: "8px" }}>
+                Solidarity
+              </div>
+              <div style={{ color: "#2F4A47", fontSize: "13px", lineHeight: "1.45" }}>
+                Collective action creates lasting change.
+              </div>
+            </div>
+            <div style={{ width: "180px", height: "180px", borderRadius: "50%", background: "#2F4A47", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "18px", boxSizing: "border-box", boxShadow: "0 14px 28px rgba(47,74,71,0.3)" }}>
+              <div style={{ color: "#F6F1E7", fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: "700", fontSize: "17px", marginBottom: "8px" }}>
+                Active Citizenship
+              </div>
+              <div style={{ color: "#F6F1E7", fontSize: "13px", lineHeight: "1.45" }}>
+                People should shape the communities they live in.
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
+      </div>
+      <div id="what-we-do" className="rp-big" style={{ width: "100%", background: "#FFFFFF", padding: "100px 8% 110px", boxSizing: "border-box", fontFamily: "'Manrope',system-ui,sans-serif" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center" }}>
+            <span className="pill">
+              <i className="eq s"></i>
+              How We Work
+            </span>
+            <h2 className="h2" style={{ marginTop: "20px" }}>
+              {t('pages.whatWeDoTitle')}
+            </h2>
+            <div style={{ marginTop: "18px" }}>
+              <span className="eq"></span>
+            </div>
+          </div>
+          <div className="rg-2" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "20px", marginTop: "56px" }}>
+            <div className="wrow">
+              <div className="t">
+                <span className="eq s"></span>
+                Education & Capacity-Building
+              </div>
+              <span className="go">
+                <svg fill="none" height="14" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" viewBox="0 0 24 24" width="14">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+            <div className="wrow">
+              <div className="t">
+                <span className="eq s"></span>
+                Youth Work & Leadership Development
+              </div>
+              <span className="go">
+                <svg fill="none" height="14" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" viewBox="0 0 24 24" width="14">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+            <div className="wrow">
+              <div className="t">
+                <span className="eq s"></span>
+                Research & Policy Advocacy
+              </div>
+              <span className="go">
+                <svg fill="none" height="14" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" viewBox="0 0 24 24" width="14">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+            <div className="wrow">
+              <div className="t">
+                <span className="eq s"></span>
+                Community Empowerment & Integration
+              </div>
+              <span className="go">
+                <svg fill="none" height="14" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" viewBox="0 0 24 24" width="14">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+            <div className="wrow">
+              <div className="t">
+                <span className="eq s"></span>
+                Promotion of Human Rights & Social Justice
+              </div>
+              <span className="go">
+                <svg fill="none" height="14" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" viewBox="0 0 24 24" width="14">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+            <div className="wrow">
+              <div className="t">
+                <span className="eq s"></span>
+                Networking & International Cooperation
+              </div>
+              <span className="go">
+                <svg fill="none" height="14" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" viewBox="0 0 24 24" width="14">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+            <div className="wrow">
+              <div className="t">
+                <span className="eq s"></span>
+                Innovation for Inclusion
+              </div>
+              <span className="go">
+                <svg fill="none" height="14" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" viewBox="0 0 24 24" width="14">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+            <div className="wrow">
+              <div className="t">
+                <span className="eq s"></span>
+                Support for Youth Workers & Organisations
+              </div>
+              <span className="go">
+                <svg fill="none" height="14" stroke="#F6F1E7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6" viewBox="0 0 24 24" width="14">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

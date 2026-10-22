@@ -60,7 +60,7 @@ export default function Header() {
           <ul className="header__links">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <Link to={link.href} onClick={() => setMenuOpen(false)}>{t(link.labelKey)}</Link>
+                <Link to={link.href} className={location.pathname.startsWith(link.href) ? 'is-active' : undefined} onClick={() => setMenuOpen(false)}>{t(link.labelKey)}</Link>
               </li>
             ))}
           </ul>

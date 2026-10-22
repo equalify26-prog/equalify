@@ -1,0 +1,16 @@
+.eqd.page-about { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+.eqd.page-about .heading { font-family: 'Cormorant Garamond', Georgia, serif; letter-spacing: 1px; text-transform: uppercase; color: #2F4A47; font-weight: 700; margin: 0; }
+.eqd.page-about .accent-rule { width: 56px; height: 4px; background: #D9A441; border-radius: 2px; margin: 14px 0 22px 0; }
+.eqd.page-about .accent-rule.center { margin-left: auto; margin-right: auto; }
+.eqd.page-about .body-copy { color: #262322; font-size: 18px; line-height: 1.7; margin: 0 0 16px 0; }
+.eqd.page-about .eyebrow { color: #4F7A76; font-weight: 600; letter-spacing: 3px; font-size: 13px; font-family: 'Cormorant Garamond', Georgia, serif; }
+.eqd.page-about .card { background: transparent; display: flex; flex-direction: column; }
+.eqd.page-about .card img { border-radius: 16px; box-shadow: 0 16px 40px rgba(47,74,71,0.16); }
+.eqd.page-about .h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: 1px; text-transform: uppercase; color: #2F4A47; margin: 0; }
+.eqd.page-about .eq { display: inline-block; width: 44px; height: 17px; background: linear-gradient(#D9A441,#D9A441) top/100% 5px no-repeat, linear-gradient(#D9A441,#D9A441) bottom/100% 5px no-repeat; }
+.eqd.page-about .eq.s { width: 18px; height: 9px; background-size: 100% 3px; flex: none; }
+.eqd.page-about .pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #D9A441; border-radius: 999px; padding: 7px 16px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2F4A47; background: #FFFFFF; }
+.eqd.page-about .pill.dark { color: #F6F1E7; border-color: rgba(246,241,231,0.45); background: rgba(246,241,231,0.08); }
+.eqd.page-about .wrow { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #F6F1E7; border-radius: 20px; padding: 22px 26px; }
+.eqd.page-about .wrow .t { display: flex; align-items: center; gap: 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: 23px; line-height: 1.2; color: #2F4A47; }
+.eqd.page-about .wrow .go { flex: none; width: 34px; height: 34px; border-radius: 50%; background: #2F4A47; display: flex; align-items: center; justify-content: center; }
