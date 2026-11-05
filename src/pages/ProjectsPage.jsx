@@ -107,7 +107,7 @@ export default function ProjectsPage() {
                   60 000€
                 </span>
               </div>
-              <Link to="/news/gameready" className="more">
+              <Link to="/projects/gameready" className="more">
                 Learn more
                 {' '}
                 <i>
